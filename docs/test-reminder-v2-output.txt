@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: R1: menambah alarm valid (jam dinormalkan, label bawaan)
+ok 1 - R1: menambah alarm valid (jam dinormalkan, label bawaan)
+  ---
+  duration_ms: 2.600301
+  type: 'test'
+  ...
+# Subtest: R2: menolak jam tidak valid dan alarm tanpa hari
+ok 2 - R2: menolak jam tidak valid dan alarm tanpa hari
+  ---
+  duration_ms: 0.265707
+  type: 'test'
+  ...
+# Subtest: R3: id alarm unik setelah ada yang dihapus
+ok 3 - R3: id alarm unik setelah ada yang dihapus
+  ---
+  duration_ms: 0.30449
+  type: 'test'
+  ...
+# Subtest: R4: alarm berbunyi pada menitnya di hari yang dipilih saja
+ok 4 - R4: alarm berbunyi pada menitnya di hari yang dipilih saja
+  ---
+  duration_ms: 0.488524
+  type: 'test'
+  ...
+# Subtest: R5: alarm belum berbunyi sebelum waktunya
+ok 5 - R5: alarm belum berbunyi sebelum waktunya
+  ---
+  duration_ms: 0.208599
+  type: 'test'
+  ...
+# Subtest: R6: alarm tetap berbunyi jika pengecekan terlambat (toleransi 2 menit)
+ok 6 - R6: alarm tetap berbunyi jika pengecekan terlambat (toleransi 2 menit)
+  ---
+  duration_ms: 0.424616
+  type: 'test'
+  ...
+# Subtest: R7: alarm tidak berbunyi dua kali pada hari yang sama
+ok 7 - R7: alarm tidak berbunyi dua kali pada hari yang sama
+  ---
+  duration_ms: 0.243928
+  type: 'test'
+  ...
+# Subtest: R8: alarm yang sudah berbunyi kemarin tetap berbunyi hari ini
+ok 8 - R8: alarm yang sudah berbunyi kemarin tetap berbunyi hari ini
+  ---
+  duration_ms: 0.240174
+  type: 'test'
+  ...
+# Subtest: R9: alarm yang dimatikan tidak berbunyi
+ok 9 - R9: alarm yang dimatikan tidak berbunyi
+  ---
+  duration_ms: 0.371882
+  type: 'test'
+  ...
+# Subtest: R10: hari Minggu dipetakan benar (indeks 6), bukan Senin
+ok 10 - R10: hari Minggu dipetakan benar (indeks 6), bukan Senin
+  ---
+  duration_ms: 0.449223
+  type: 'test'
+  ...
+# Subtest: R11: pengingat kuliah muncul tepat N menit sebelum mulai
+ok 11 - R11: pengingat kuliah muncul tepat N menit sebelum mulai
+  ---
+  duration_ms: 0.342127
+  type: 'test'
+  ...
+# Subtest: R12: pengingat kuliah mati jika lead = 0
+ok 12 - R12: pengingat kuliah mati jika lead = 0
+  ---
+  duration_ms: 0.159676
+  type: 'test'
+  ...
+# Subtest: R13: kuliah hari Selasa pukul 00:10 dengan lead 30 mengingatkan Senin pukul 23:40
+ok 13 - R13: kuliah hari Selasa pukul 00:10 dengan lead 30 mengingatkan Senin pukul 23:40
+  ---
+  duration_ms: 0.205136
+  type: 'test'
+  ...
+# Subtest: R14: pengingat kuliah tidak muncul pada hari lain
+ok 14 - R14: pengingat kuliah tidak muncul pada hari lain
+  ---
+  duration_ms: 0.162709
+  type: 'test'
+  ...
+# Subtest: R15: pengingat tugas pada tanggal tenggat dan jam yang dipilih
+ok 15 - R15: pengingat tugas pada tanggal tenggat dan jam yang dipilih
+  ---
+  duration_ms: 0.180816
+  type: 'test'
+  ...
+# Subtest: R16: tugas yang sudah selesai atau tanpa jam tidak mengingatkan
+ok 16 - R16: tugas yang sudah selesai atau tanpa jam tidak mengingatkan
+  ---
+  duration_ms: 0.11925
+  type: 'test'
+  ...
+# Subtest: R17: addTask menyimpan remindAt dan menolak jam tanpa tenggat
+ok 17 - R17: addTask menyimpan remindAt dan menolak jam tanpa tenggat
+  ---
+  duration_ms: 0.226329
+  type: 'test'
+  ...
+# Subtest: R18: tunda 5 menit: tidak jatuh tempo sebelum, jatuh tempo tepat saat waktunya
+ok 18 - R18: tunda 5 menit: tidak jatuh tempo sebelum, jatuh tempo tepat saat waktunya
+  ---
+  duration_ms: 0.174615
+  type: 'test'
+  ...
+# Subtest: R19: catatan "sudah berbunyi" lama dibersihkan agar penyimpanan tidak membengkak
+ok 19 - R19: catatan "sudah berbunyi" lama dibersihkan agar penyimpanan tidak membengkak
+  ---
+  duration_ms: 0.795812
+  type: 'test'
+  ...
+# Subtest: R20: teks alarm di-escape saat ditampilkan
+ok 20 - R20: teks alarm di-escape saat ditampilkan
+  ---
+  duration_ms: 0.195279
+  type: 'test'
+  ...
+# Subtest: R21: penyimpanan kosong atau rusak memberi nilai bawaan, bukan crash
+ok 21 - R21: penyimpanan kosong atau rusak memberi nilai bawaan, bukan crash
+  ---
+  duration_ms: 1.542554
+  type: 'test'
+  ...
+# Subtest: R22: simpan lalu muat menghasilkan data sama
+ok 22 - R22: simpan lalu muat menghasilkan data sama
+  ---
+  duration_ms: 0.26805
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 105.992005

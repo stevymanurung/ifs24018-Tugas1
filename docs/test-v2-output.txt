@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: S1: menambah sesi jadwal valid
+ok 1 - S1: menambah sesi jadwal valid
+  ---
+  duration_ms: 1.439398
+  type: 'test'
+  ...
+# Subtest: S2: menolak nama mata kuliah kosong
+ok 2 - S2: menolak nama mata kuliah kosong
+  ---
+  duration_ms: 0.288098
+  type: 'test'
+  ...
+# Subtest: S3: menolak jam selesai sebelum atau sama dengan jam mulai
+ok 3 - S3: menolak jam selesai sebelum atau sama dengan jam mulai
+  ---
+  duration_ms: 0.148986
+  type: 'test'
+  ...
+# Subtest: S4: menerima jam tanpa nol di depan (9:00 sampai 10:00)
+ok 4 - S4: menerima jam tanpa nol di depan (9:00 sampai 10:00)
+  ---
+  duration_ms: 1.498278
+  type: 'test'
+  ...
+# Subtest: S5: menolak format jam tidak valid
+ok 5 - S5: menolak format jam tidak valid
+  ---
+  duration_ms: 0.200058
+  type: 'test'
+  ...
+# Subtest: S6: dua sesi berurutan (selesai 09:00, mulai 09:00) tidak dianggap bentrok
+ok 6 - S6: dua sesi berurutan (selesai 09:00, mulai 09:00) tidak dianggap bentrok
+  ---
+  duration_ms: 0.248571
+  type: 'test'
+  ...
+# Subtest: S7: sesi yang tumpang tindih pada hari sama ditolak
+ok 7 - S7: sesi yang tumpang tindih pada hari sama ditolak
+  ---
+  duration_ms: 0.154117
+  type: 'test'
+  ...
+# Subtest: S8: jam sama pada hari berbeda diperbolehkan
+ok 8 - S8: jam sama pada hari berbeda diperbolehkan
+  ---
+  duration_ms: 0.125148
+  type: 'test'
+  ...
+# Subtest: S9: urutan jadwal berdasarkan hari lalu jam mulai
+ok 9 - S9: urutan jadwal berdasarkan hari lalu jam mulai
+  ---
+  duration_ms: 0.940049
+  type: 'test'
+  ...
+# Subtest: S10: jadwal "hari ini" untuk hari Senin mengambil sesi Senin
+ok 10 - S10: jadwal "hari ini" untuk hari Senin mengambil sesi Senin
+  ---
+  duration_ms: 0.570805
+  type: 'test'
+  ...
+# Subtest: S11: id sesi unik setelah ada yang dihapus
+ok 11 - S11: id sesi unik setelah ada yang dihapus
+  ---
+  duration_ms: 0.239187
+  type: 'test'
+  ...
+# Subtest: K1: menambah tugas valid dan menolak judul kosong
+ok 12 - K1: menambah tugas valid dan menolak judul kosong
+  ---
+  duration_ms: 0.216559
+  type: 'test'
+  ...
+# Subtest: K2: tenggat hari ini belum terlambat; kemarin terlambat; selesai tidak
+ok 13 - K2: tenggat hari ini belum terlambat; kemarin terlambat; selesai tidak
+  ---
+  duration_ms: 0.182403
+  type: 'test'
+  ...
+# Subtest: K3: tugas mendekati tenggat 7 hari (termasuk hari ini), terurut
+ok 14 - K3: tugas mendekati tenggat 7 hari (termasuk hari ini), terurut
+  ---
+  duration_ms: 0.203347
+  type: 'test'
+  ...
+# Subtest: K4: toggle, hapus, dan filter tugas
+ok 15 - K4: toggle, hapus, dan filter tugas
+  ---
+  duration_ms: 0.185207
+  type: 'test'
+  ...
+# Subtest: X1: teks pengguna di-escape pada tampilan jadwal dan tugas
+ok 16 - X1: teks pengguna di-escape pada tampilan jadwal dan tugas
+  ---
+  duration_ms: 0.267039
+  type: 'test'
+  ...
+# Subtest: X2: data localStorage rusak tidak membuat aplikasi crash
+ok 17 - X2: data localStorage rusak tidak membuat aplikasi crash
+  ---
+  duration_ms: 0.272802
+  type: 'test'
+  ...
+# Subtest: X3: simpan lalu muat menghasilkan data sama
+ok 18 - X3: simpan lalu muat menghasilkan data sama
+  ---
+  duration_ms: 0.23114
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 91.250952

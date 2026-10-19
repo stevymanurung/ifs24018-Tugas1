@@ -1,0 +1,429 @@
+TAP version 13
+# Subtest: R1: menambah alarm valid (jam dinormalkan, label bawaan)
+not ok 1 - R1: menambah alarm valid (jam dinormalkan, label bawaan)
+  ---
+  duration_ms: 2.963313
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:20:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + '  Belajar  '
+    - 'Belajar'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'Belajar'
+  actual: '  Belajar  '
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:23:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: R2: menolak jam tidak valid dan alarm tanpa hari
+not ok 2 - R2: menolak jam tidak valid dan alarm tanpa hari
+  ---
+  duration_ms: 0.39704
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:28:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:30:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: R3: id alarm unik setelah ada yang dihapus
+not ok 3 - R3: id alarm unik setelah ada yang dihapus
+  ---
+  duration_ms: 0.258305
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:36:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    id duplikat: 2,3,3
+    
+    2 !== 3
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 3
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:43:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R4: alarm berbunyi pada menitnya di hari yang dipilih saja
+not ok 4 - R4: alarm berbunyi pada menitnya di hari yang dipilih saja
+  ---
+  duration_ms: 0.511397
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:46:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:48:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R5: alarm belum berbunyi sebelum waktunya
+ok 5 - R5: alarm belum berbunyi sebelum waktunya
+  ---
+  duration_ms: 0.192165
+  type: 'test'
+  ...
+# Subtest: R6: alarm tetap berbunyi jika pengecekan terlambat (toleransi 2 menit)
+not ok 6 - R6: alarm tetap berbunyi jika pengecekan terlambat (toleransi 2 menit)
+  ---
+  duration_ms: 0.185408
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:57:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    terlambat 1,5 menit
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:59:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R7: alarm tidak berbunyi dua kali pada hari yang sama
+not ok 7 - R7: alarm tidak berbunyi dua kali pada hari yang sama
+  ---
+  duration_ms: 0.281539
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:63:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'key')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:66:36)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R8: alarm yang sudah berbunyi kemarin tetap berbunyi hari ini
+not ok 8 - R8: alarm yang sudah berbunyi kemarin tetap berbunyi hari ini
+  ---
+  duration_ms: 0.223201
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:70:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:74:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R9: alarm yang dimatikan tidak berbunyi
+ok 9 - R9: alarm yang dimatikan tidak berbunyi
+  ---
+  duration_ms: 0.313274
+  type: 'test'
+  ...
+# Subtest: R10: hari Minggu dipetakan benar (indeks 6), bukan Senin
+not ok 10 - R10: hari Minggu dipetakan benar (indeks 6), bukan Senin
+  ---
+  duration_ms: 0.4139
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:82:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Minggu 25 Okt
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:84:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R11: pengingat kuliah muncul tepat N menit sebelum mulai
+not ok 11 - R11: pengingat kuliah muncul tepat N menit sebelum mulai
+  ---
+  duration_ms: 0.356447
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:91:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:95:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R12: pengingat kuliah mati jika lead = 0
+ok 12 - R12: pengingat kuliah mati jika lead = 0
+  ---
+  duration_ms: 0.183758
+  type: 'test'
+  ...
+# Subtest: R13: kuliah hari Selasa pukul 00:10 dengan lead 30 mengingatkan Senin pukul 23:40
+not ok 13 - R13: kuliah hari Selasa pukul 00:10 dengan lead 30 mengingatkan Senin pukul 23:40
+  ---
+  duration_ms: 0.357847
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:103:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:105:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R14: pengingat kuliah tidak muncul pada hari lain
+ok 14 - R14: pengingat kuliah tidak muncul pada hari lain
+  ---
+  duration_ms: 0.112727
+  type: 'test'
+  ...
+# Subtest: R15: pengingat tugas pada tanggal tenggat dan jam yang dipilih
+ok 15 - R15: pengingat tugas pada tanggal tenggat dan jam yang dipilih
+  ---
+  duration_ms: 0.194667
+  type: 'test'
+  ...
+# Subtest: R16: tugas yang sudah selesai atau tanpa jam tidak mengingatkan
+ok 16 - R16: tugas yang sudah selesai atau tanpa jam tidak mengingatkan
+  ---
+  duration_ms: 0.148629
+  type: 'test'
+  ...
+# Subtest: R17: addTask menyimpan remindAt dan menolak jam tanpa tenggat
+ok 17 - R17: addTask menyimpan remindAt dan menolak jam tanpa tenggat
+  ---
+  duration_ms: 0.355309
+  type: 'test'
+  ...
+# Subtest: R18: tunda 5 menit: tidak jatuh tempo sebelum, jatuh tempo tepat saat waktunya
+not ok 18 - R18: tunda 5 menit: tidak jatuh tempo sebelum, jatuh tempo tepat saat waktunya
+  ---
+  duration_ms: 0.265187
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:135:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    tepat 08:05:00 harus berbunyi
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:139:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R19: catatan "sudah berbunyi" lama dibersihkan agar penyimpanan tidak membengkak
+not ok 19 - R19: catatan "sudah berbunyi" lama dibersihkan agar penyimpanan tidak membengkak
+  ---
+  duration_ms: 0.941023
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:143:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'lama',
+        'baru'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'baru'
+  actual:
+    0: 'lama'
+    1: 'baru'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:147:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R20: teks alarm di-escape saat ditampilkan
+not ok 20 - R20: teks alarm di-escape saat ditampilkan
+  ---
+  duration_ms: 0.366288
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:150:1'
+  failureType: 'testCodeFailure'
+  error: 'HTML mentah lolos: <li data-id="1">08:00 <img src=x onerror=alert(1)></li>'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:152:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R21: penyimpanan kosong atau rusak memberi nilai bawaan, bukan crash
+not ok 21 - R21: penyimpanan kosong atau rusak memberi nilai bawaan, bukan crash
+  ---
+  duration_ms: 0.942337
+  type: 'test'
+  location: '/home/claude/planner/test/reminder.test.js:155:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + null
+    - {
+    -   alarms: [],
+    -   fired: {},
+    -   lead: 10,
+    -   snoozes: []
+    - }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    alarms:
+    lead: 10
+    fired:
+    snoozes:
+  actual: ~
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/reminder.test.js:157:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: R22: simpan lalu muat menghasilkan data sama
+ok 22 - R22: simpan lalu muat menghasilkan data sama
+  ---
+  duration_ms: 1.571961
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 8
+# fail 14
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.788453

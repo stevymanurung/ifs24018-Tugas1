@@ -1,0 +1,342 @@
+TAP version 13
+# Subtest: S1: menambah sesi jadwal valid
+ok 1 - S1: menambah sesi jadwal valid
+  ---
+  duration_ms: 1.520614
+  type: 'test'
+  ...
+# Subtest: S2: menolak nama mata kuliah kosong
+not ok 2 - S2: menolak nama mata kuliah kosong
+  ---
+  duration_ms: 1.218094
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:26:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: S3: menolak jam selesai sebelum atau sama dengan jam mulai
+ok 3 - S3: menolak jam selesai sebelum atau sama dengan jam mulai
+  ---
+  duration_ms: 1.227818
+  type: 'test'
+  ...
+# Subtest: S4: menerima jam tanpa nol di depan (9:00 sampai 10:00)
+not ok 4 - S4: menerima jam tanpa nol di depan (9:00 sampai 10:00)
+  ---
+  duration_ms: 0.339828
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:35:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S5: menolak format jam tidak valid
+not ok 5 - S5: menolak format jam tidak valid
+  ---
+  duration_ms: 0.201052
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:39:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S6: dua sesi berurutan (selesai 09:00, mulai 09:00) tidak dianggap bentrok
+not ok 6 - S6: dua sesi berurutan (selesai 09:00, mulai 09:00) tidak dianggap bentrok
+  ---
+  duration_ms: 0.193941
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:43:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:46:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S7: sesi yang tumpang tindih pada hari sama ditolak
+ok 7 - S7: sesi yang tumpang tindih pada hari sama ditolak
+  ---
+  duration_ms: 0.201422
+  type: 'test'
+  ...
+# Subtest: S8: jam sama pada hari berbeda diperbolehkan
+ok 8 - S8: jam sama pada hari berbeda diperbolehkan
+  ---
+  duration_ms: 0.164162
+  type: 'test'
+  ...
+# Subtest: S9: urutan jadwal berdasarkan hari lalu jam mulai
+ok 9 - S9: urutan jadwal berdasarkan hari lalu jam mulai
+  ---
+  duration_ms: 1.369388
+  type: 'test'
+  ...
+# Subtest: S10: jadwal "hari ini" untuk hari Senin mengambil sesi Senin
+not ok 10 - S10: jadwal "hari ini" untuk hari Senin mengambil sesi Senin
+  ---
+  duration_ms: 1.040139
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:69:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SELASA'
+    -   'SENIN'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SENIN'
+  actual:
+    0: 'SELASA'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:72:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S11: id sesi unik setelah ada yang dihapus
+not ok 11 - S11: id sesi unik setelah ada yang dihapus
+  ---
+  duration_ms: 0.401742
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:75:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    id duplikat: 2,3,3
+    
+    2 !== 3
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 3
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:82:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: K1: menambah tugas valid dan menolak judul kosong
+not ok 12 - K1: menambah tugas valid dan menolak judul kosong
+  ---
+  duration_ms: 0.223342
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:86:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:91:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: K2: tenggat hari ini belum terlambat; kemarin terlambat; selesai tidak
+not ok 13 - K2: tenggat hari ini belum terlambat; kemarin terlambat; selesai tidak
+  ---
+  duration_ms: 0.217684
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:94:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:95:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: K3: tugas mendekati tenggat 7 hari (termasuk hari ini), terurut
+not ok 14 - K3: tugas mendekati tenggat 7 hari (termasuk hari ini), terurut
+  ---
+  duration_ms: 0.501893
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:100:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    -   'hariini',
+        'lusa'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'hariini'
+    1: 'lusa'
+  actual:
+    0: 'lusa'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:108:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: K4: toggle, hapus, dan filter tugas
+ok 15 - K4: toggle, hapus, dan filter tugas
+  ---
+  duration_ms: 0.238097
+  type: 'test'
+  ...
+# Subtest: X1: teks pengguna di-escape pada tampilan jadwal dan tugas
+not ok 16 - X1: teks pengguna di-escape pada tampilan jadwal dan tugas
+  ---
+  duration_ms: 0.24824
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:122:1'
+  failureType: 'testCodeFailure'
+  error: 'jadwal lolos: <li data-id="1"><b>08:00-09:00</b> <img src=x onerror=alert(1)> <img src=x onerror=alert(1)></li>'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:126:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: X2: data localStorage rusak tidak membuat aplikasi crash
+not ok 17 - X2: data localStorage rusak tidak membuat aplikasi crash
+  ---
+  duration_ms: 0.174957
+  type: 'test'
+  location: '/home/claude/planner/test/planner.test.js:130:1'
+  failureType: 'testCodeFailure'
+  error: "Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+  code: 'ERR_TEST_FAILURE'
+  name: 'SyntaxError'
+  stack: |-
+    JSON.parse (<anonymous>)
+    Object.loadData (/home/claude/planner/docs/v1-ai-draft/planner.js:72:16)
+    TestContext.<anonymous> (/home/claude/planner/test/planner.test.js:131:28)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: X3: simpan lalu muat menghasilkan data sama
+ok 18 - X3: simpan lalu muat menghasilkan data sama
+  ---
+  duration_ms: 0.307925
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 7
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 329.048629
