@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Planner - Jadwal dan Tugas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Study Planner</h1>
+    <p>Atur jadwal pembelajaran dan tugas kuliahmu di satu tempat</p>
+  </header>
+
+  <main>
+    <section class="panel today" aria-labelledby="today-title">
+      <h2 id="today-title">Hari ini</h2>
+      <div class="two">
+        <div><h3>Jadwal hari ini</h3><ul id="today-classes"></ul></div>
+        <div><h3>Tugas 7 hari ke depan</h3><ul id="today-tasks"></ul></div>
+      </div>
+    </section>
+
+
+    <section class="panel" aria-labelledby="rem-title">
+      <h2 id="rem-title">Pengingat dan Alarm</h2>
+      <div class="rem-bar">
+        <button type="button" id="enable-btn">Aktifkan pengingat</button>
+        <button type="button" id="test-btn" class="ghost">Tes bunyi</button>
+        <label class="lead">Ingatkan kuliah
+          <select id="lead" aria-label="Menit sebelum kuliah">
+            <option value="0">Mati</option><option value="5">5 menit</option><option value="10">10 menit</option>
+            <option value="15">15 menit</option><option value="30">30 menit</option>
+          </select> sebelum mulai
+        </label>
+      </div>
+      <p id="rem-status" class="muted" role="status"></p>
+      <form id="alarm-form" novalidate>
+        <input id="a-label" type="text" placeholder="Nama alarm (mis. Belajar)" maxlength="40" autocomplete="off" aria-label="Nama alarm">
+        <input id="a-time" type="time" aria-label="Jam alarm">
+        <fieldset class="days" aria-label="Hari alarm">
+          <label><input type="checkbox" name="a-day" value="0">Sen</label><label><input type="checkbox" name="a-day" value="1">Sel</label>
+          <label><input type="checkbox" name="a-day" value="2">Rab</label><label><input type="checkbox" name="a-day" value="3">Kam</label>
+          <label><input type="checkbox" name="a-day" value="4">Jum</label><label><input type="checkbox" name="a-day" value="5">Sab</label>
+          <label><input type="checkbox" name="a-day" value="6">Min</label>
+        </fieldset>
+        <button type="submit">Tambah Alarm</button>
+      </form>
+      <p id="a-error" class="error" role="alert"></p>
+      <ul id="alarm-list" class="alarms"></ul>
+      <p id="alarm-empty" class="muted center">Belum ada alarm kustom.</p>
+      <p class="muted note">Catatan: alarm hanya berbunyi selama halaman ini terbuka di browser (tab boleh di latar belakang).</p>
+    </section>
+
+    <section class="panel" aria-labelledby="sch-title">
+      <h2 id="sch-title">Jadwal Pembelajaran</h2>
+      <form id="session-form" novalidate>
+        <input id="s-course" type="text" placeholder="Mata kuliah / kegiatan" maxlength="80" autocomplete="off" aria-label="Mata kuliah">
+        <select id="s-day" aria-label="Hari">
+          <option value="0">Senin</option><option value="1">Selasa</option><option value="2">Rabu</option>
+          <option value="3">Kamis</option><option value="4">Jumat</option><option value="5">Sabtu</option>
+          <option value="6">Minggu</option>
+        </select>
+        <input id="s-start" type="time" aria-label="Jam mulai">
+        <input id="s-end" type="time" aria-label="Jam selesai">
+        <input id="s-room" type="text" placeholder="Ruang (opsional)" maxlength="40" aria-label="Ruang">
+        <button type="submit">Tambah Jadwal</button>
+      </form>
+      <p id="s-error" class="error" role="alert"></p>
+      <div id="schedule" class="week"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="task-title">
+      <h2 id="task-title">Tugas</h2>
+      <form id="task-form" novalidate>
+        <input id="t-title" type="text" placeholder="Tulis tugas baru..." maxlength="120" autocomplete="off" aria-label="Judul tugas">
+        <input id="t-course" type="text" list="course-options" placeholder="Mata kuliah (opsional)" maxlength="80" aria-label="Mata kuliah tugas">
+        <datalist id="course-options"></datalist>
+        <input id="t-due" type="date" aria-label="Tenggat">
+        <input id="t-remind" type="time" aria-label="Ingatkan pada jam (opsional, pada tanggal tenggat)" title="Ingatkan pada jam (di tanggal tenggat)">
+        <button type="submit">Tambah Tugas</button>
+      </form>
+      <p id="t-error" class="error" role="alert"></p>
+      <div class="filters" role="group" aria-label="Filter tugas">
+        <button type="button" data-filter="all" class="active">Semua</button>
+        <button type="button" data-filter="active">Aktif</button>
+        <button type="button" data-filter="done">Selesai</button>
+      </div>
+      <ul id="task-list" class="tasks"></ul>
+      <p id="task-empty" class="muted center" hidden>Belum ada tugas di sini.</p>
+      <p id="task-count" class="muted center"></p>
+    </section>
+  </main>
+
+
+  <div id="ring" class="ring" role="alertdialog" aria-modal="true" aria-labelledby="ring-title" hidden>
+    <div class="ring-box">
+      <p class="ring-icon" aria-hidden="true">&#128276;</p>
+      <h2 id="ring-title">Pengingat</h2>
+      <ul id="ring-list"></ul>
+      <div class="ring-actions">
+        <button type="button" id="snooze-btn" class="ghost">Tunda 5 menit</button>
+        <button type="button" id="dismiss-btn">Matikan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/planner.js"></script>
+  <script src="src/reminder.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

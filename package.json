@@ -1,0 +1,11 @@
+{
+  "name": "study-planner-js",
+  "version": "1.0.0",
+  "description": "Study Planner: pengatur jadwal pembelajaran dan tugas (HTML, CSS, JavaScript) - Tugas I PABWE 11S3133",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "test": "node --test test/planner.test.js test/reminder.test.js",
+    "test:v1": "node --test test/v1.test.js test/reminder-v1.test.js"
+  },
+  "license": "MIT"
+}
